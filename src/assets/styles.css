@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+img {
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    min-width: 250px;
+    width: 100%;
+}
+
+button:hover {
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.play-container button {
+    background-color: gold;
+    border-radius: 4px;
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.context-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.dex-container {
+    display: block;
+    text-align: left;
+}
+
+.dex-container button {
+    background-color: gold;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 15px;
+    margin-left: 5px;
+    transition-duration: 0.4s;
+}
+
+.game-container {
+    column-gap: 30px;
+    display: grid;
+    grid-template-rows: minmax(268px, 300px) 1fr;
+    margin: 5px;
+    min-width: 250px;
+    text-align: center;
+}
+
+.header {
+    align-items: center;
+    color: black;
+    display: block;
+    justify-content: center;
+    margin: 1rem 1rem;
+}
+
+.header h1 {
+    margin-top: 5px;
+}
+
+.play-container h2 {
+    margin-top: 5px;
+}
+
+p {
+    margin: 5px;
+}
