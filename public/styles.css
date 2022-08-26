@@ -1,5 +1,5 @@
 body {
     background-image: url("./snorlaxtest.jpg");
-    background-size: 120%;
+    background-size: cover;
     font-family: "Poppins";
 }

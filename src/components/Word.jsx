@@ -14,13 +14,11 @@ const Word = () => {
     const [restartGame, setRestartGame] = useState(false);
     const [displayRestart, setDisplayRestart] = useState(false);
     const [clickRestart, setClickRestart] = useState(false);
-    //const [pokemonID, setPokemonID] = useState([]);
 
     const maskedName = currentPokemon.split("").map(letter => 
         correctGuess.includes(letter) ? letter : "_"
     );
     useEffect(() => {
-        console.log(currentPokemon);
         const handleKeyDown = event => {
             const { key, keyCode } = event;
             if (gamePlayable && ((keyCode >= 65 && keyCode <= 90) || keyCode === 222 || keyCode === 190)) {
@@ -29,7 +27,6 @@ const Word = () => {
                     (!correctGuess.includes(letter)) 
                     &&
                     setCorrectGuess(currentLetter => [...currentLetter, letter]);
-                    console.log(correctGuess);
                 } else {
                     (!incorrectGuess.includes(letter)) 
                     &&
@@ -52,20 +49,7 @@ const Word = () => {
         }
     },[correctGuess]);
 
-    /* USED FOR DEBUGGING IN CONSOLE 
     useEffect(() => {
-        //setPokemonID(pokemonList.map(pokemonList => pokemonList.id).indexOf(pokemonList))
-        console.log('pokemonlist:', pokemonList)
-        console.log('pokedex:', pokedex)
-    }, [pokedex, pokemonList, pokemonID])
-    // useEffect(() => {
-    //     console.log('pokemonID:', {pokemonID})
-    // }, [pokemonID])
-    */
-
-    useEffect(() => {
-        console.log(incorrectGuess);
-        console.log(incorrectGuess.length);
         if (incorrectGuess.length >= 8) {
             setLives(lives-1)
             setCorrectGuess([])
@@ -74,7 +58,6 @@ const Word = () => {
     }, [incorrectGuess]);
 
     useEffect(() => {
-        console.log('lives', lives);
         lives === 0 && setGamePlayable(false)
         gamePlayable === false && setRestartGame(true)
         if (restartGame === true) {
@@ -102,9 +85,9 @@ const Word = () => {
     return (
         <div className="context-container">
             <div className="dex-container">            
-                <p>Pokemon Caught: {pokemonCaught} </p>
+                <h4>Pokemon Caught: {pokemonCaught} </h4>
                 <button onClick={onClickDex}>Pokedex:</button>
-                { displayPokedex ? pokedex.map(pkmn => <p>{pkmn}</p>) : null}
+                <div className="pokedex-container">{ displayPokedex ? pokedex.map(pkmn => <div key={pkmn} className="pokedex-entry">{pkmn}</div>) : null}</div>
             </div>
             <div className="play-container">
                 {displayRestart ? <h1>GAME OVER</h1> : <h2>{maskedName}</h2>}
